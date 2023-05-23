@@ -19,6 +19,7 @@ app.use(express.static(__dirname + '/public'))
 
 // landing page
 app.use('/', handlers)
+app.use('/resume', handlers)
 
 app.listen(port, () => {
     console.log(`Express started on http://localhost:${port}` +

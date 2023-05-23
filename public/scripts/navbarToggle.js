@@ -1,16 +1,29 @@
-// const navbarToggle = document.querySelector('#navbar-toggle');
-// let isNavbarExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+const navbar = document.getElementById("navbar");
+const navbarToggle = navbar.querySelector(".navbar-toggle");
 
-// const toggleNavbarVisibility = () => {
-//   isNavbarExpanded = !isNavbarExpanded;
-//   navbarToggle.setAttribute('aria-expanded', isNavbarExpanded);
-// };
+function openMobileNavbar() {
+  navbar.classList.add("opened");
+  navbarToggle.setAttribute("aria-expanded", "true");
+}
 
-// navbarToggle.addEventListener('click', toggleNavbarVisibility);
+function closeMobileNavbar() {
+  navbar.classList.remove("opened");
+  navbarToggle.setAttribute("aria-expanded", "false");
+}
 
-// const navbarMenu = document.querySelector('#navbar-menu');
-// const navbarLinksContainer = navbarMenu.querySelector('.navbar-links');
+navbarToggle.addEventListener("click", () => {
+  if (navbar.classList.contains("opened")) {
+    closeMobileNavbar();
+  } else {
+    openMobileNavbar();
+  }
+});
 
-// navbarLinksContainer.addEventListener('click', (e) => e.stopPropagation());
-// navbarMenu.addEventListener('click', toggleNavbarVisibility);
+const navbarMenu = navbar.querySelector("#navbar-menu");
+const navbarLinksContainer = navbar.querySelector(".navbar-links");
 
+navbarLinksContainer.addEventListener("click", (clickEvent) => {
+  clickEvent.stopPropagation();
+});
+
+navbarMenu.addEventListener("click", closeMobileNavbar);
