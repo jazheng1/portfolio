@@ -77,8 +77,9 @@ const handleOnMove = e => {
 
         for (const image of track.getElementsByClassName("image")) {
             image.animate({
-                objectPosition: `${90 - nextPercentage}% center`
+                objectPosition: `${100 + (nextPercentage - 50)}% center`
             }, { duration: 1200, fill: "forwards" });
+            console.log(image.style.objectPosition)
         }
     // scroll right
     } else {
@@ -86,7 +87,7 @@ const handleOnMove = e => {
 
         for (const image of track.getElementsByClassName("image")) {
             image.animate({
-                objectPosition: `${90 + nextPercentage}% center`
+                objectPosition: `${100 + (nextPercentage - 50)}% center`
             }, { duration: 1200, fill: "forwards" });
         }
     }
