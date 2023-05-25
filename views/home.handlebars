@@ -89,23 +89,28 @@
                 </a>
             </div>
         </div>
-        <div id="form">
+        <div id="emailForm">
             <h1>dont be shy!</h1>
-            <form action="">
+            <form id="sendEmail">
                 <div class="form-item">
                     <label for="name">name</label>
-                    <input class="input" type="text" id="name" name="name" placeholder="your name">
+                    <input id="name" class="form-control" type="text" placeholder="your name">
                 </div>
                 <div class="form-item">
                     <label for="email">email</label>
-                    <input class="input" type="text" id="email" name="email" placeholder="your email">
+                    <input id="email" class="form-control" type="text" placeholder="your email">
+                </div>
+                <div class="form-item">
+                    <label for="subject">subject</label>
+                    <input id="subject" class="form-control" type="text" placeholder="hello there amigo!">
                 </div>
                 <div class="form-item">
                     <label for="message">message</label>
-                    <textarea class="input" id="message" name="message" placeholder="hello there amigo!" style="height:100px"></textarea>
+                    <textarea id="message" class="form-control" type="text" placeholder="i hope you are having a nice day!"></textarea>
                 </div>
-
-                <input class="btn" type="submit" value="submit">
+                <div class="form-item">
+                    <button id="email-btn" type="submit" class="btn">send</button>
+                </div>
             </form>
         </div>
     </div>
