@@ -99,17 +99,22 @@ const handleOnMove = e => {
 
 }
 
-window.onmousedown = e => handleOnDown(e);
+let isLargeScreen = $(this).width() > 1000;
 
-window.ontouchstart = e => handleOnDown(e.touches[0]);
+if(isLargeScreen) {
+    window.onmousedown = e => handleOnDown(e);
 
-window.onmouseup = e => handleOnUp(e);
+    window.ontouchstart = e => handleOnDown(e.touches[0]);
 
-window.ontouchend = e => handleOnUp(e.touches[0]);
+    window.onmouseup = e => handleOnUp(e);
 
-window.onmousemove = e => handleOnMove(e);
+    window.ontouchend = e => handleOnUp(e.touches[0]);
 
-window.ontouchmove = e => handleOnMove(e.touches[0]);
+    window.onmousemove = e => handleOnMove(e);
+
+    window.ontouchmove = e => handleOnMove(e.touches[0]);
+}  
+
 
 // fade and unfade effect
 function fade(element) {
