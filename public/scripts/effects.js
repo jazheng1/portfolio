@@ -58,32 +58,44 @@ const track = document.getElementById("image-track");
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX
 
 const handleOnUp = () => {
-    track.dataset.mouseDownAt = "0";
+    track.dataset.mouseDownAt = "50";
     track.dataset.prevPercentage = track.dataset.percentage
 }
 
 const handleOnMove = e => {
-    if (track.dataset.mouseDownAt === "0") return;
+    if (track.dataset.mouseDownAt === "50") return;
 
     const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
+        maxDelta = window.innerWidth / 2
+    let nextPercentage = 0;
+    const percentage = (mouseDelta / maxDelta) * 100
+    const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) - percentage
 
-    const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+    // scroll left
+    if(mouseDelta < 0) {
+        nextPercentage = Math.min(Math.max(nextPercentageUnconstrained, 0), 50);
+
+        for (const image of track.getElementsByClassName("image")) {
+            image.animate({
+                objectPosition: `${90 - nextPercentage}% center`
+            }, { duration: 1200, fill: "forwards" });
+        }
+    // scroll right
+    } else {
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -50);
+
+        for (const image of track.getElementsByClassName("image")) {
+            image.animate({
+                objectPosition: `${90 + nextPercentage}% center`
+            }, { duration: 1200, fill: "forwards" });
+        }
+    }
 
     track.dataset.percentage = nextPercentage;
-
     track.animate({
         transform: `translate(${nextPercentage}%, -50%)`
     }, { duration: 1200, fill: "forwards" });
 
-    // image parallax efect
-    for (const image of track.getElementsByClassName("image")) {
-        image.animate({
-            objectPosition: `${100 + nextPercentage}% center`
-        }, { duration: 1200, fill: "forwards" });
-    }
 }
 
 window.onmousedown = e => handleOnDown(e);
