@@ -10,8 +10,9 @@ html {
 
 body {
     height: 100%;
+    width: 100%;
     font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
-    color: hsl(0, 0%, 85%);
+    color: #F8F1F1;
     line-height: 1.6;
     background-color: black;
     overflow-x: hidden;
@@ -20,6 +21,7 @@ body {
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
+    z-index: 10;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -298,6 +300,7 @@ body {
     user-select: none;
 }
 
+/* card credit: https://uiverse.io/alexruix/cowardly-ape-35 */
 .card {
     width: 40vmin;
     height: 56vmin;
@@ -310,7 +313,6 @@ body {
     overflow: visible;
     user-select: none;
 }
-
 
 .card-button {
     transform: translate(-50%, 125%);
@@ -375,7 +377,7 @@ body {
 @media screen and (max-width: 500px){
     #works::before {
         content: "";
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
@@ -422,6 +424,15 @@ body {
 }
 
 /* contact section */
+@keyframes jiggle {
+    0%{
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
 #contact {
     position: relative;
     width: 100vw;
@@ -429,6 +440,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 #contact::before {
@@ -443,4 +455,93 @@ body {
     background-size: cover;
     background-position: center center;
     filter: brightness(60%);
+    z-index: -999;
+}
+
+#contact-header {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    font-size: 45px;
+    color: #A0D8B3;
+}
+
+#contact-action {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    gap: 4vmin;
+    width: 80%;
+    height: 70%;
+    justify-content: space-evenly;
+}
+
+#contact-info {
+    padding-right: 60px;
+    height: 60%;
+    border-right: 3px solid #A0D8B3;
+}
+
+.social {
+    position: absolute;
+    display: flex;
+    gap: 2vmin;
+    bottom: 40%;
+}
+
+.info {
+    position: relative;
+    left: 10%;
+    display: flex;
+    padding-top: 50px;
+    gap: 4vmin;
+}
+
+.btn {
+    /* transform: translate(-50%, 125%); */
+    /* width: 60%; */
+    border-radius: 15px;
+    border: none;
+    background-color: #A0D8B3;
+    color: black;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    /* left: 50%; */
+}
+
+.input {
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    color: #F8F1F1;
+    padding: 0.25em 0.5em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #F8F1F1 ;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -8%;
+    width: 300px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.btn:hover {
+    border-color: #A0D8B3;
+    box-shadow: 0 0 15px #A0D8B3;
+}
+
+.icon:hover {
+    animation: jiggle 1s;
 }

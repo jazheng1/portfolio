@@ -66,19 +66,47 @@
 </div>
 
 <div id="contact">
-    <h1>dont be shy!</h1>
-    <div id="form">
-        <form action="">
-            <label for="fname">first.name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <div id="contact-header">
+        <h1>contact me</h1>
+    </div>
+    <div id="contact-action">
+        <div id="contact-info">
+            <h1>contact information</h1>
+            <div class="info">
+                <img src="/img/icons/phone.png" style="width: 25px; height:25px" alt="phone icon">
+                <p>954-854-3176</p>
+            </div>
+            <div class="info">
+                <img src="/img/icons/email.png" style="width: 25px; height:25px" alt="email icon">
+                <p>jason.zheng84@gmail.com</p>
+            </div>
+            <div class="social">
+                <a href="http://linkedin.com/in/jazheng" target="_blank">
+                    <img class="icon" src="/img/icons/linkedin.png" style="width: 50px; height:50px" alt="linkedin icon">
+                </a>
+                <a href="http://github.com/jazheng1" target="_blank">
+                    <img class="icon" src="/img/icons/github.png" style="width: 50px; height:50px" alt="linkedin icon">
+                </a>
+            </div>
+        </div>
+        <div id="form">
+            <h1>dont be shy!</h1>
+            <form action="">
+                <div class="form-item">
+                    <label for="name">name</label>
+                    <input class="input" type="text" id="name" name="name" placeholder="your name">
+                </div>
+                <div class="form-item">
+                    <label for="email">email</label>
+                    <input class="input" type="text" id="email" name="email" placeholder="your email">
+                </div>
+                <div class="form-item">
+                    <label for="message">message</label>
+                    <textarea class="input" id="message" name="message" placeholder="hello there amigo!" style="height:100px"></textarea>
+                </div>
 
-            <label for="lname">last.name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-            <label for="subject">subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-            <input type="submit" value="Submit">
-        </form>
+                <input class="btn" type="submit" value="submit">
+            </form>
+        </div>
     </div>
 </div>
