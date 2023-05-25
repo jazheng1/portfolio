@@ -19,6 +19,11 @@ body {
     overflow-x: hidden;
 }
 
+#return, a {
+    text-decoration: none;
+    color: #F8F1F1;
+}
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -619,4 +624,17 @@ body {
 
 #mountains {
     width: 100%;
+}
+
+/* load effect */
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+  }
+
+.reveal.visible{
+    transform: translateY(0);
+    opacity: 1;
 }

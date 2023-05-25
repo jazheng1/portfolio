@@ -1,5 +1,5 @@
 :root {
-    --navbar-bg-color: none;
+    --navbar-bg-color: black;
     --navbar-text-color: #F8F1F1;
     --navbar-text-color-focus: #A0D8B3;
     --navbar-bg-contrast: #A0D8B3;
@@ -193,3 +193,4 @@
         margin-right: 0;
     }
 }
+
