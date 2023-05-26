@@ -1,6 +1,6 @@
 let imgArea = document.querySelector('#img-area')
 let cropped = document.querySelector('#hero-img-cropped')
-let img = document.querySelector('#hero-img')
+let img = document.getElementById('hero-img')
 
 // make hero image pop
 function dissapear(el) {
