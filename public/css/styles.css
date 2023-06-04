@@ -76,21 +76,22 @@ body {
 
 .stars {
     background: #000 url(/img/stars.png) repeat top center;
-    z-index: -999;
+    z-index: -9;
 }
 
 .twinkling {
     background: transparent url(/img/twinkling.png) repeat top center;
-    z-index: -998;
+    z-index: -8;
     animation: move-twink-back 200s linear infinite;
 }
 
 .clouds {
     background: transparent url(/img/clouds.png) repeat top center;
-    z-index: -997;
+    z-index: -7;
     opacity: .4;
     animation: move-clouds-back 200s linear infinite;
 }
+
 
 #landing {
     position: relative;
@@ -123,7 +124,6 @@ body {
     text-align: center;
     position: absolute;
     color: #A0D8B3;
-    bottom: 40%;
     z-index: 0;
 }
 
@@ -164,7 +164,6 @@ body {
         text-align: center;
         position: absolute;
         color: #A0D8B3;
-        bottom: 30%;
         z-index: 0;
     }
 }
@@ -178,14 +177,12 @@ body {
         text-align: center;
         position: absolute;
         color: #A0D8B3;
-        bottom: 50%;
         z-index: 0;
     }
 
     #hero-img {
         opacity: .5;
         position: absolute;
-        top: 70px;
         z-index: 0;
         transform: translate(var(--mouse-x), var(--mouse-y));
         width: 333px;
@@ -196,7 +193,6 @@ body {
         position: absolute;
         visibility: hidden;
         z-index: 1;
-        top: 70px;
         transition: background-color 0.2s ease-in-out,
             transform 0.2s ease-in-out,
             opacity 0.2s ease-in-out;
@@ -205,7 +201,6 @@ body {
     #img-area {
         position: absolute;
         z-index: 2;
-        top: 70px;
         height: 500px;
         width: 333px;
     }
@@ -213,7 +208,7 @@ body {
 
 .explore {
     position: relative;
-    bottom: -35%;
+    bottom: -40%;
     background: none;
     width: 100px;
     height: 50px;
@@ -272,11 +267,11 @@ body {
 #works {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    overflow-x: hidden;
 }
 
 #works::before {
@@ -286,7 +281,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -294,21 +289,22 @@ body {
 }
 
 #work-text {
-    position: absolute;
-    left: 10%;
-    top: 10%;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
     font-size: 45px;
     color: #A0D8B3;
 }
 
 #image-track {
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
     gap: 4vmin;
-    position: absolute;
-    top: 59%;
-    padding: 20px;
-    transform: translate(0%, -50%);
-    user-select: none;
+    width: 100%;
+    bottom: 0;
+    height: fit-content;
 }
 
 /* card credit: https://uiverse.io/alexruix/cowardly-ape-35 */
@@ -355,45 +351,28 @@ body {
     width: 40vmin;
     height: 56vmin;
     object-fit: cover;
-    object-position: 100% center;
     border-radius: 15px;
     user-select: none;
 }
-
-@media screen and (max-width: 1100px){
-    
-    #image-track {
-        display: flex;
-        gap: 4vmin;
-        flex-direction: column;
-        position: absolute;
-        bottom: 0;
-        padding: 20px;
-        user-select: none;
-        overflow: scroll;
-    }
-}
-
 @media screen and (max-width: 550px){
 
-    #image-track {
-        display: flex;
-        gap: 4vmin;
-        flex-direction: column;
-        position: absolute;
-        bottom: 0;
-        user-select: none;
-        overflow: scroll;
-    }
-
     #work-text {
-        position: absolute;
-        left: 10%;
+        position: relative;
         top: 10%;
+        left: 10%;
         font-size: 30px;
         color: #A0D8B3;
     }
     
+    #image-track {
+        justify-content: flex-start;
+        gap: 8vmin;
+    }
+
+    .card {
+        width: 30vmin;
+    }
+
     .card-button {
         transform: translate(-50%, 125%);
         width: 100%;
@@ -423,11 +402,12 @@ body {
 #contact {
     position: relative;
     width: 100vw;
-    height: 800px;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     z-index: 10;
-    overflow-x: hidden;
 }
 
 #contact::before {
@@ -446,40 +426,39 @@ body {
 }
 
 #contact-header {
-    position: absolute;
-    left: 10%;
+    position: relative;
     top: 10%;
     font-size: 45px;
+    margin-top: 100px;
+    margin-bottom: 50px;
     color: #A0D8B3;
 }
 
 #contact-action {
     display: flex;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    justify-content: space-evenly;
     gap: 4vmin;
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 #contact-info {
-    padding-right: 60px;
-    height: 60%;
-    border-right: 3px solid #A0D8B3;
+    display: flex;
+    flex-direction: column;
 }
 
 .social {
-    position: absolute;
+    position: relative;
     display: flex;
     gap: 2vmin;
-    bottom: 40%;
+    margin-top: 50%;
 }
 
 .info {
     position: relative;
-    left: 10%;
     display: flex;
-    padding-top: 50px;
+    margin-top: 20px;
     gap: 4vmin;
 }
 
@@ -505,8 +484,9 @@ body {
     border-bottom: 2px solid #F8F1F1 ;
 }
 
-#emailForm {
-    padding-left: 100px;
+#divider {
+    height: auto;
+    border: 2px solid #A0D8B3;
 }
 
 #sendEmail {
@@ -514,39 +494,26 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 25% 75%;
     gap: 0 5em;
-    margin: 0;
-    padding: 0;
     position: relative;
-    left: -8%;
-    width: 300px;
 }
 
 @media screen and (max-width: 1150px) {
     #sendEmail {
         display: flex;
         flex-direction: column;
-        margin: 0;
-        padding: 0;
         position: relative;
-        left: -8%;
-        width: 80%;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 @media screen and (max-width: 550px){
     #contact {
-        position: relative;
-        width: 100vw;
-        height: 1100px;
+        height: fit-content;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         z-index: 10;
-        overflow-x: hidden;
-    }
-    
-    #contact::before {
-        width: 100%;
-        height: 1200px;
     }
 
     #contact-header {
@@ -554,25 +521,23 @@ body {
     }
 
     #contact-action {
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
-        position: absolute;
-        /* bottom: 0; */
         gap: 4vmin;
-        width: 80%;
-        height: 70%;
     }
 
-    #contact-info {
-        padding: 0;
-        padding-bottom: 20px;
+    #divider {
+        height: auto;
         border: none;
-        padding-bottom: 100px;
-        border-bottom: 3px solid #A0D8B3;
-    }
+        border-top: 2px solid #A0D8B3;
+    }   
+
     .social {
-        position: absolute;
-        bottom: 55%;
+        margin-top: 5vh;
+    }
+
+    .form-item {
+        width: 70%;
     }
 }
 
@@ -583,6 +548,7 @@ body {
 }
 
 .btn:hover {
+    transition: 0.5s ease-out;
     border-color: #A0D8B3;
     box-shadow: 0 0 15px #A0D8B3;
 }
@@ -591,6 +557,7 @@ body {
     animation: jiggle 1s;
 }
 
+/* footer */
 #footer {
     position: relative;
     width: 100vw;
