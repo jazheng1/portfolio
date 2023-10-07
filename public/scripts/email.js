@@ -19,7 +19,7 @@ $("#sendEmail").submit(async (e) => {
         body: JSON.stringify({ "name": name, "email": email, "subject": subject, "message": message })
     }).then(
         function (res) {
-            console.log('res', res)
+            // console.log('res', res)
             return res
         }
     ).then(
